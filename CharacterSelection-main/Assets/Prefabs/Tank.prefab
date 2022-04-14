@@ -206,7 +206,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14e800d9ede7e546bb8f2f4651b7385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: 0
+  rotation: 0
   rb: {fileID: 5060157716153331230}
+  childs:
+  - {fileID: 7863469288007049845}
+  - {fileID: 7863469288007049843}
+  - {fileID: 7863469288007049853}
+  - {fileID: 7863469288007049847}
 --- !u!54 &5060157716153331230
 Rigidbody:
   m_ObjectHideFlags: 0

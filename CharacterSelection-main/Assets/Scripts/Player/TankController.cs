@@ -3,21 +3,20 @@
 public class TankController 
 {
     private TankModel tankModel;
-
     private TankView tankView;
 
     private Rigidbody rb;
 
     public TankController(TankModel _tankModel,TankView _tankView)
-    {
+    {       
         tankModel = _tankModel;
         tankView = GameObject.Instantiate<TankView>(_tankView);
         rb = tankView.GetRigidbody();
 
         tankModel.SetTankController(this);
         tankView.SetTankController(this);
-
         tankView.ChangeColor(tankModel.color);
+        
     }
     
     public void Move(float movement, float movementSpeed)
@@ -30,6 +29,19 @@ public class TankController
         Vector3 vector = new Vector3(0f, rotate * rotateSpeed, 0f);
         Quaternion deltaRotation = Quaternion.Euler(vector * Time.deltaTime);
         rb.MoveRotation(rb.rotation * deltaRotation);
+    }
+
+    public void Fire()
+    {
+        tankView.shellSpawner.CreateShell();
+    }
+
+    public void ReduceHealth(int damage)
+    {
+        tankModel.health -= damage;
+        //gameUI.UpdateUI(tankModel.health);
+        //if (tankModel.health <= 0)
+          //  GameOver();
     }
 
     public TankModel GetTankModel()

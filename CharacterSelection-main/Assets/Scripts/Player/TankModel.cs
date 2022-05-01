@@ -12,12 +12,15 @@ public class TankModel
 
     public Material color;
 
-    public TankModel(float _movement, float _rotation, TankTypes tank, Material _color)
+    public int health;
+
+    public TankModel(float _movement, float _rotation, TankTypes tank, Material _color, int _health)
     {
         movementSpeed = _movement;
         rotationSpeed = _rotation;
         tankType = tank;
         color = _color;
+        health = _health;
     }
 
     public void SetTankController(TankController _tankController)
